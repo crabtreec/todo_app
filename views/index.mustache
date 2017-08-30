@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  {{>_head}}
+  <body>
+    <header>
+      <h1>Todo List</h1>
+    </header>
+    <main>
+      <form class="new-todo" action="/todos" method="post">
+        <input type="text" name="text" value="" placeholder="Add Task" size=30 required><button type="submit" name="submit">submit</button>
+      </form>
+      <div class="todo-container">
+
+        <h2>Items to complete:</h2>
+        {{#incomplete}}
+          {{>_incomplete}}
+        {{/incomplete}}
+        {{^incomplete}}
+          <p>All items complete</p>
+        {{/incomplete}}
+
+        <h2>Complet items</h2>
+        {{#complete}}
+          <del>{{>_complete}}</del>
+          <br>
+        {{/complete}}
+        {{^complete}}
+          <p>All items incomplete</p>
+        {{/complete}}
+      </div>
+    </main>
+  </body>
+</html>
